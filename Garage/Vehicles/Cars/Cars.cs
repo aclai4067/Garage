@@ -8,13 +8,6 @@ namespace Garage.Vehicles.Cars
     {
         public int NumberOfDoors { get; protected set; }
         public bool isElectric { get; protected set; }
-        public Cars(int powerCapacity, VehicleColor color, int passengersCapacity, int numOfDoors)
-        {
-            FuelOrBatteryCapacity = powerCapacity;
-            Color = color;
-            PassengerCapacity = passengersCapacity;
-            NumberOfDoors = numOfDoors;
-        }
 
         public override void Refuel(int amount)
         {
@@ -28,16 +21,22 @@ namespace Garage.Vehicles.Cars
             }
         }
 
+
         public override void MoveVehicle(string destination, int passengers)
         {
             if (passengers > PassengerCapacity)
             {
-                Console.WriteLine($"You have exceeded the maximum capacity.  Please remove {PassengerCapacity - passengers} passengers.");
+                Console.WriteLine($"You have exceeded the maximum capacity.  Please remove {passengers - PassengerCapacity} passengers.");
             }
             else
             {
                 Console.WriteLine($"Buckle up! You are driving your car to {destination}.");
             }
+        }
+
+        public void RoadRage(string musicInput)
+        {
+            Console.WriteLine($"We all hate traffic, but you deal with it poorly. Play Bad Habit on your {musicInput} and scream until your face turns red.");
         }
     }
 }

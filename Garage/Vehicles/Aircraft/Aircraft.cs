@@ -6,12 +6,7 @@ namespace Garage.Vehicles.Aircraft
 {
     abstract class Aircraft : VehicleBase
     {
-        public Aircraft(int powerCapacity, VehicleColor color, int passengersCapacity)
-        {
-            FuelOrBatteryCapacity = powerCapacity;
-            Color = color;
-            PassengerCapacity = passengersCapacity;
-        }
+        public int MaxAltitude { get; set; }
 
         public override void MoveVehicle(string destination, int passengers)
         {
@@ -23,6 +18,11 @@ namespace Garage.Vehicles.Aircraft
             {
                 Console.WriteLine($"Return your seat to it's upright position! You are flying to {destination}.");
             }
+        }
+
+        public void PushTheLimit()
+        {
+            Console.WriteLine($"You are flying at your maximum altitude of {MaxAltitude} feet!!");
         }
     }
 }
